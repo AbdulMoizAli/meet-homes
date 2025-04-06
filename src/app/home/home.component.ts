@@ -10,8 +10,9 @@ import { HousingService } from '../housing.service';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  private housingService: HousingService = inject(HousingService);
+
   housingLocationList: HousingLocation[] = [];
-  housingService: HousingService = inject(HousingService);
 
   constructor() {
     this.housingLocationList = this.housingService.getAllHousingLocations();
