@@ -22,9 +22,11 @@ export class DetailsComponent {
 
   @Input()
   set id(id: string) {
-    this.housingLocation = this.housingService.getHousingLocationById(
-      Number(id)
-    );
+    this.housingService
+      .getHousingLocationById(Number(id))
+      .then((location: HousingLocation | undefined) => {
+        this.housingLocation = location;
+      });
   }
 
   applyForHousingLocation() {
